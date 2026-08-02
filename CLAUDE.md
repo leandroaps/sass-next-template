@@ -42,12 +42,22 @@ Mailpit UI (verification/reset emails) is at http://localhost:8025.
   `Link`/`redirect`/`usePathname`/`useRouter` come from `src/i18n/navigation.ts` — not
   `next/link` / `next/navigation`. Messages live in `src/messages/{pt-BR,en}.json`;
   every user-facing string must exist in both.
-- **Only `src/proxy.ts` exists — do not recreate `src/middleware.ts`**: Next.js 16
-  renamed the `middleware.ts` convention to `proxy.ts`, and having both present is a
-  hard error at startup (`Both middleware file './src/middleware.ts' and proxy file
-  './src/proxy.ts' are detected...`), not a silent ignore — this actually broke
-  `npm run dev` once when both briefly existed. `src/proxy.ts` wraps next-intl's
-  middleware; it's the only file of this kind that should exist in the tree.
+- **Only `src/middleware.ts` exists — do not add `src/proxy.ts`, and don't rename
+  back without checking OpenNext support first**: Next.js 16 renamed the
+  `middleware.ts` convention to `proxy.ts` and made `proxy.ts` files always compile to
+  the Node.js runtime (setting `runtime` in its `config` throws
+  `E1031`/`Route segment config is not allowed in Proxy file...`) — but
+  `@opennextjs/cloudflare` (as of `1.20.2`) has no support for Node.js
+  middleware/proxy and fails the Cloudflare build with `Node.js middleware is not
+  currently supported. Consider switching to Edge Middleware.` The legacy
+  `middleware.ts` name isn't subject to that Node-only lock, so this template
+  deliberately keeps that name (with the deprecation warning silenced by nothing —
+  it's expected) and sets `export const config = { runtime: "experimental-edge",
+  matcher: [...] }` so OpenNext bundles it as Edge middleware. Having both
+  `middleware.ts` and `proxy.ts` present is a separate hard error at startup (`Both
+  middleware file './src/middleware.ts' and proxy file './src/proxy.ts' are
+  detected...`) — never let both exist. Revisit this once `@opennextjs/cloudflare`
+  ships Node.js middleware support upstream.
 - **DB schema is split by domain** under `src/db/schema/*.ts` (`auth.ts`,
   `organizations.ts`, `projects.ts`, `audit-logs.ts`), barrel-exported from
   `src/db/schema/index.ts`, which is what `drizzle.config.ts` and `getDb()` both point

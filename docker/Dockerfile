@@ -22,6 +22,7 @@ ENV BETTER_AUTH_SECRET=build-time-placeholder-32-characters
 ENV BETTER_AUTH_URL=http://localhost:3000
 ENV SMTP_URL=smtp://localhost:1025
 ENV DATABASE_URL=postgres://app:app@localhost:5432/app_build
+RUN mkdir -p drizzle
 RUN pnpm build
 
 FROM node:24-slim AS runner

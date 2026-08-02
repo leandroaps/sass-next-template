@@ -1,0 +1,57 @@
+{
+  "common": {
+    "appName": "SaaS Next Template",
+    "language": "Idioma",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "create": "Criar",
+    "signIn": "Entrar",
+    "signOut": "Sair",
+    "signUp": "Criar conta"
+  },
+  "landing": {
+    "eyebrow": "Starter full-stack de SaaS",
+    "title": "Lance seu SaaS mais rápido",
+    "subtitle": "Template full-stack com autenticação, banco tipado, i18n e deploy pronto para Cloudflare Workers.",
+    "cta": "Começar agora",
+    "stackLink": "Ver a stack",
+    "builtWith": "Construído com"
+  },
+  "auth": {
+    "loginTitle": "Entrar na sua conta",
+    "loginSubtitle": "Informe seu email e senha para continuar",
+    "registerTitle": "Criar uma conta",
+    "registerSubtitle": "Comece a usar em poucos minutos",
+    "email": "Email",
+    "password": "Senha",
+    "name": "Nome",
+    "forgotPassword": "Esqueceu a senha?",
+    "noAccount": "Não tem uma conta?",
+    "hasAccount": "Já tem uma conta?",
+    "verifyEmailTitle": "Verifique seu email",
+    "verifyEmailSubtitle": "Enviamos um link de verificação para o seu email.",
+    "resetPasswordTitle": "Redefinir senha",
+    "resetPasswordSubtitle": "Informe seu email para receber o link de redefinição",
+    "signInError": "Email ou senha inválidos"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "projects": "Projetos",
+    "projectsEmpty": "Nenhum projeto ainda. Crie o primeiro!",
+    "newProject": "Novo projeto",
+    "projectName": "Nome do projeto",
+    "projectDescription": "Descrição"
+  },
+  "errors": {
+    "generic": "Algo deu errado. Tente novamente.",
+    "notFound": "Página não encontrada"
+  },
+  "validation": {
+    "required": "Este campo é obrigatório",
+    "emailInvalid": "Informe um email válido",
+    "passwordMin": "A senha deve ter pelo menos 8 caracteres",
+    "nameMin": "O nome deve ter pelo menos 2 caracteres"
+  }
+}

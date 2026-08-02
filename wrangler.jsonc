@@ -1,0 +1,64 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sass-next-template",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Production database target: Neon (https://neon.tech). Hyperdrive proxies
+  // to Neon's *direct* (non-pooled) connection string — Hyperdrive does its
+  // own pooling, so Neon's own pgbouncer pooling should stay unchecked in the
+  // Neon dashboard's Connection Details pane when you copy the string for
+  // `wrangler hyperdrive create`. See README "Cloudflare deploy" section.
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "REPLACE_WITH_HYPERDRIVE_ID_PREVIEW"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "R2_UPLOADS",
+      "bucket_name": "sass-next-template-uploads"
+    }
+  ],
+  "env": {
+    "preview": {
+      "name": "sass-next-template-preview",
+      "vars": {
+        "NEXT_PUBLIC_APP_URL": "https://sass-next-template-preview.workers.dev",
+        "NEXT_PUBLIC_DEFAULT_LOCALE": "pt-BR"
+      },
+      // Point this at a Neon *branch* database (e.g. one branch per PR) so
+      // preview deploys never touch production data.
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": "REPLACE_WITH_HYPERDRIVE_ID_PREVIEW"
+        }
+      ]
+    },
+    "production": {
+      "name": "sass-next-template-production",
+      "vars": {
+        "NEXT_PUBLIC_APP_URL": "https://sass-next-template.workers.dev",
+        "NEXT_PUBLIC_DEFAULT_LOCALE": "pt-BR"
+      },
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": "REPLACE_WITH_HYPERDRIVE_ID_PRODUCTION"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "common": {
+    "appName": "SaaS Next Template",
+    "language": "Language",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "create": "Create",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Sign up"
+  },
+  "landing": {
+    "eyebrow": "Full-stack SaaS starter",
+    "title": "Ship your SaaS faster",
+    "subtitle": "Full-stack template with auth, typed database, i18n, and Cloudflare Workers deploy ready to go.",
+    "cta": "Get started",
+    "stackLink": "See the stack",
+    "builtWith": "Built with"
+  },
+  "auth": {
+    "loginTitle": "Sign in to your account",
+    "loginSubtitle": "Enter your email and password to continue",
+    "registerTitle": "Create an account",
+    "registerSubtitle": "Start using it in minutes",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "verifyEmailTitle": "Verify your email",
+    "verifyEmailSubtitle": "We sent a verification link to your email.",
+    "resetPasswordTitle": "Reset password",
+    "resetPasswordSubtitle": "Enter your email to receive the reset link",
+    "signInError": "Invalid email or password"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "projects": "Projects",
+    "projectsEmpty": "No projects yet. Create the first one!",
+    "newProject": "New project",
+    "projectName": "Project name",
+    "projectDescription": "Description"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "notFound": "Page not found"
+  },
+  "validation": {
+    "required": "This field is required",
+    "emailInvalid": "Enter a valid email",
+    "passwordMin": "Password must be at least 8 characters",
+    "nameMin": "Name must be at least 2 characters"
+  }
+}
